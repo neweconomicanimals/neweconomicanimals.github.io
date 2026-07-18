@@ -78,12 +78,7 @@
     display: flex; align-items: baseline; gap: 14px;
     padding-top: 14px;
   }
-  .side .no {
-    font-family: "Inter", sans-serif;
-    font-size: 13px; font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-  }
+  .nw { white-space: nowrap; }
   .side .en {
     font-family: "Inter", sans-serif;
     font-size: 10.5px; font-weight: 500;
@@ -271,6 +266,20 @@
   .def-row .v { color: var(--ink-2); }
   .def-row .v b { color: var(--ink); font-weight: 700; }
 
+  /* Sponsor */
+  .sponsor p { font-size: 16px; color: var(--ink-2); margin-bottom: 28px; }
+  .mail-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 30px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14.5px; font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .mail-btn:hover { background: var(--ink); color: var(--paper); }
+
   /* ---------- Footer ---------- */
   footer { padding: 52px 0 68px; border-top: 1px solid var(--line); }
   .foot-row {
@@ -336,7 +345,7 @@
     <div>
       <p class="overline">Business Comedy Podcast</p>
       <h1>ニューエコノミック<br>アニマルズ</h1>
-      <p class="lede"><b>1話5分・通勤中に聴けるビジネスコメディ。</b><br>現代の働く人たちの“あるある”を笑いに変える、一話完結のオーディオドラマです。</p>
+      <p class="lede"><b>1話5分・通勤中に聴けるビジネスコメディ。</b><br>現代の働く人たちの<span class="nw">“あるある”を</span>笑いに変える、<span class="nw">一話完結の</span><span class="nw">オーディオドラマです。</span></p>
     </div>
     <img class="hero-art" src="assets/cover.jpg" alt="ニューエコノミックアニマルズ カバーアート" width="320" height="320">
   </div>
@@ -353,7 +362,7 @@
 
 <section id="listen">
   <div class="container sec">
-    <aside class="side"><span class="no">01</span><span class="en">Listen</span></aside>
+    <aside class="side"><span class="en">Listen</span></aside>
     <div class="body">
       <h2>聴く</h2>
       <div class="listen-row">
@@ -361,18 +370,18 @@
         <a class="badge-spotify" href="https://open.spotify.com/show/0Ni2G71wjYVIsIOZV3Dpi8" target="_blank" rel="noopener" aria-label="Spotifyで聴く"><img src="assets/spotify-logo-green.png" alt="Spotify"></a>
         <a class="badge-apple" href="https://podcasts.apple.com/jp/podcast/id1572195829" target="_blank" rel="noopener" aria-label="Apple Podcastsで聴く"><img src="assets/apple-podcasts-lockup-white-jp.svg" alt="Apple Podcastsで聴く"></a>
       </div>
-      <p class="alexa">Alexa対応 —— <b>「アレクサ、Amazon Musicでポッドキャスト『ニューエコノミックアニマルズ』を再生して」</b></p>
+      <p class="alexa">Alexa対応 —— <b>「アレクサ、<span class="nw">Amazon Musicで</span><span class="nw">ポッドキャスト</span><span class="nw">『ニューエコノミックアニマルズ』を</span><span class="nw">再生して」</span></b></p>
     </div>
   </div>
 </section>
 
 <section id="about">
   <div class="container sec">
-    <aside class="side"><span class="no">02</span><span class="en">About</span></aside>
+    <aside class="side"><span class="en">About</span></aside>
     <div class="body about">
       <h2>番組について</h2>
-      <p class="lead-in">「AIに仕事を奪われる」「何でもハラスメント」「同僚のスタートアップへの転職」——誰もが覚えのあるビジネスシーンを、5分のコメディに凝縮。</p>
-      <p>通勤中・家事中・休憩中の“ながら聴き”にぴったりのポッドキャストです。長野県のコミュニティFM「FMさくだいら」でも毎週放送中。</p>
+      <p class="lead-in"><span class="nw">「AIに仕事を奪われる」</span><span class="nw">「何でもハラスメント」</span><span class="nw">「同僚のスタートアップへの転職」</span>——誰もが覚えのある<span class="nw">ビジネスシーンを、</span><span class="nw">5分のコメディに</span><span class="nw">凝縮。</span></p>
+      <p>通勤中・家事中・休憩中の<span class="nw">“ながら聴き”に</span>ぴったりの<span class="nw">ポッドキャストです。</span>長野県のコミュニティFM<span class="nw">「FMさくだいら」でも</span><span class="nw">毎週放送中。</span></p>
     </div>
   </div>
 </section>
@@ -381,10 +390,10 @@
   <div class="container">
     <div class="q-rule"></div>
     <blockquote>
-      かつてエコノミックアニマルと呼ばれ、<br>
-      世界を席巻したジャパニーズビジネスマン。<br>
-      時代が変わり、世界が変わった今。<br>
-      私たちはどんな<em>アニマル</em>になっているのだろうか。
+      <span class="nw">かつてエコノミックアニマルと</span><span class="nw">呼ばれ、</span><br>
+      <span class="nw">世界を席巻した</span><span class="nw">ジャパニーズビジネスマン。</span><br>
+      <span class="nw">時代が変わり、</span><span class="nw">世界が変わった今。</span><br>
+      <span class="nw">私たちはどんな<em>アニマル</em>に</span><span class="nw">なっているのだろうか。</span>
     </blockquote>
     <figcaption>— New Economic Animals</figcaption>
   </div>
@@ -392,7 +401,7 @@
 
 <section id="episodes">
   <div class="container sec">
-    <aside class="side"><span class="no">03</span><span class="en">Episodes</span></aside>
+    <aside class="side"><span class="en">Episodes</span></aside>
     <div class="body">
       <h2>エピソード</h2>
       <div class="embed">
@@ -404,7 +413,7 @@
 
 <section id="onair">
   <div class="container sec">
-    <aside class="side"><span class="no">04</span><span class="en">On Air</span></aside>
+    <aside class="side"><span class="en">On Air</span></aside>
     <div class="body">
       <h2>放送・配信</h2>
       <div class="def-row"><div class="k">FMさくだいら</div><div class="v"><b>毎週金曜 20:00 O.A.</b>（長野県佐久エリア）</div></div>
@@ -413,9 +422,20 @@
   </div>
 </section>
 
+<section id="sponsor">
+  <div class="container sec">
+    <aside class="side"><span class="en">Sponsorship</span></aside>
+    <div class="body sponsor">
+      <h2>スポンサー募集</h2>
+      <p>番組を一緒に育てていただける<span class="nw">スポンサー企業・団体を</span><span class="nw">募集しています。</span>番組内でのご紹介や<span class="nw">タイアップ企画など、</span>形は<span class="nw">ご相談のうえ</span><span class="nw">設計します。</span>まずはお気軽に<span class="nw">ご連絡ください。</span></p>
+      <a class="mail-btn" href="mailto:new.economic.animals@gmail.com">スポンサーのご相談はこちら</a>
+    </div>
+  </div>
+</section>
+
 <section id="credits">
   <div class="container sec">
-    <aside class="side"><span class="no">05</span><span class="en">Credits</span></aside>
+    <aside class="side"><span class="en">Credits</span></aside>
     <div class="body">
       <h2>クレジット</h2>
       <div class="def-row"><div class="k">脚本</div><div class="v"><b>塩味</b></div></div>
