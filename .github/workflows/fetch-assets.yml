@@ -21,7 +21,9 @@ jobs:
           [ -f assets/spotify-logo-green.png ] || curl -sL "https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png" -o assets/spotify-logo-green.png
           [ -f assets/apple-podcasts-lockup-white-jp.svg ] || curl -sL "https://tools.applemediaservices.com/api/badges/listen-on-apple-podcasts/standard-white/ja-jp?size=250x83" -o assets/apple-podcasts-lockup-white-jp.svg
           echo "5352e40637cab50d24e5c911f895468296cc5af865723adb9f0eebc9eb64a5fd  assets/cover.jpg" | sha256sum -c
-          identify -format "%wx%h %m" assets/cover-1000.jpg | grep -q "^1000x1000 JPEG"
+          file assets/cover-1000.jpg
+          file assets/cover-1000.jpg | grep -q "JPEG image data"
+          file assets/cover-1000.jpg | grep -q "1000x1000"
           [ "$(stat -c%s assets/cover-1000.jpg)" -gt 200000 ]
           echo "4704a6ebc518cf7a26a8948b2092d078077ac790f88ed68a3c48fc6fbe0fdf63  assets/listen-on-amazon-music-jp-charcoal.png" | sha256sum -c
           echo "d16b993e511316fe930a3579ba51a229459c801962ad4a310c7b216a5f7443a8  assets/listen-on-amazon-music-jp-white.png" | sha256sum -c
