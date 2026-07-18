@@ -13,28 +13,34 @@
 <link rel="icon" type="image/jpeg" href="assets/cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@350;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --paper: #faf8f4;
     --ink: #17191d;
-    --ink-2: #4c4f55;
-    --ink-3: #8a8d93;
+    --ink-2: #3e4148;
+    --ink-3: #83868c;
     --line: rgba(23, 25, 29, 0.14);
     --line-strong: rgba(23, 25, 29, 0.82);
     --accent: #b8371f;
-    --card: #ffffff;
+    --band-bg: #17191d;
+    --band-fg: #f2efe9;
+    --band-muted: #a7a49e;
+    --band-em: #e8967d;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --paper: #131417;
       --ink: #edeae4;
-      --ink-2: #b3b0aa;
-      --ink-3: #7c7a76;
+      --ink-2: #c0bdb6;
+      --ink-3: #83817c;
       --line: rgba(237, 234, 228, 0.16);
       --line-strong: rgba(237, 234, 228, 0.85);
       --accent: #d96a4f;
-      --card: #1b1c20;
+      --band-bg: #edeae4;
+      --band-fg: #17191d;
+      --band-muted: #5d5f66;
+      --band-em: #b8371f;
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,7 +50,7 @@
     font-weight: 400;
     background: var(--paper);
     color: var(--ink);
-    line-height: 2;
+    line-height: 1.95;
     font-feature-settings: "palt";
     letter-spacing: 0.02em;
     -webkit-font-smoothing: antialiased;
@@ -59,7 +65,7 @@
 
   /* ---------- Header ---------- */
   .site-head {
-    padding: 28px 0;
+    padding: 26px 0;
     border-bottom: 1px solid var(--line);
   }
   .site-head .container {
@@ -77,178 +83,207 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero { padding: 96px 0 88px; }
+  .hero { padding: 92px 0 84px; }
   .hero .container {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 320px;
     gap: 72px;
     align-items: center;
   }
   .overline {
     font-family: "Inter", sans-serif;
-    font-size: 11px; font-weight: 500;
+    font-size: 11.5px; font-weight: 600;
     letter-spacing: 0.26em; text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 28px;
+    margin-bottom: 26px;
   }
   h1 {
     font-family: "Shippori Mincho", serif;
     font-weight: 600;
-    font-size: clamp(34px, 5.4vw, 54px);
-    line-height: 1.42;
+    font-size: clamp(34px, 4.6vw, 47px);
+    white-space: nowrap;
+    line-height: 1.4;
     letter-spacing: 0.02em;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
   }
   .lede {
-    font-size: 15.5px;
-    color: var(--ink-2);
-    max-width: 34em;
+    font-size: 16.5px;
+    line-height: 2.1;
+    max-width: 32em;
   }
+  .lede b { color: var(--accent); font-weight: 700; }
   .hero-art {
-    width: 300px; aspect-ratio: 1;
-    border-radius: 6px;
-    box-shadow: 0 24px 60px -24px rgba(0,0,0,0.38), 0 2px 8px rgba(0,0,0,0.08);
+    width: 320px; aspect-ratio: 1;
+    border-radius: 8px;
+    box-shadow: 0 28px 64px -24px rgba(0,0,0,0.4), 0 2px 10px rgba(0,0,0,0.1);
   }
 
   /* ---------- Fact row ---------- */
-  .facts { border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); }
+  .facts { border-top: 2px solid var(--line-strong); border-bottom: 1px solid var(--line); }
   .facts .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
   .fact {
-    padding: 26px 8px 28px;
+    padding: 30px 8px 32px;
     border-left: 1px solid var(--line);
   }
   .fact:first-child { border-left: none; padding-left: 0; }
-  .fact + .fact { padding-left: 28px; }
+  .fact + .fact { padding-left: 30px; }
   .fact dt {
     font-family: "Inter", sans-serif;
-    font-size: 10.5px; font-weight: 500;
+    font-size: 10.5px; font-weight: 600;
     letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--ink-3);
-    margin-bottom: 6px;
+    color: var(--accent);
+    margin-bottom: 8px;
   }
   .fact dd {
     font-family: "Shippori Mincho", serif;
-    font-size: 21px; font-weight: 600; line-height: 1.4;
+    font-size: 25px; font-weight: 700; line-height: 1.35;
   }
-  .fact dd small { font-size: 13px; font-weight: 500; color: var(--ink-2); margin-left: 2px; }
+  .fact dd small { font-size: 13.5px; font-weight: 500; color: var(--ink-3); margin-left: 3px; }
 
   /* ---------- Sections ---------- */
-  section { padding: 88px 0; border-bottom: 1px solid var(--line); }
-  .sec-label {
+  section { padding: 92px 0; border-bottom: 1px solid var(--line); }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 20px;
+    margin-bottom: 48px;
+  }
+  .sec-head .no {
     font-family: "Inter", sans-serif;
-    font-size: 11px; font-weight: 500;
+    font-size: 13px; font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .sec-head h2 {
+    font-family: "Shippori Mincho", serif;
+    font-size: clamp(26px, 3.4vw, 32px);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .sec-head .en {
+    font-family: "Inter", sans-serif;
+    font-size: 10.5px; font-weight: 500;
     letter-spacing: 0.26em; text-transform: uppercase;
     color: var(--ink-3);
-    display: flex; align-items: center; gap: 14px;
-    margin-bottom: 44px;
+    flex: 1;
+    display: flex; align-items: center; gap: 16px;
   }
-  .sec-label::after { content: ""; height: 1px; flex: 1; background: var(--line); }
-  .sec-label b { color: var(--accent); font-weight: 500; }
+  .sec-head .en::after { content: ""; height: 1px; flex: 1; background: var(--line); }
 
   /* Listen */
-  .listen-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-  .badge-link { display: inline-flex; border-radius: 6px; transition: opacity 0.15s ease; }
-  .badge-link:hover { opacity: 0.85; }
-  .badge-link img { height: 48px; display: block; border-radius: 6px; }
-  .platform {
-    display: inline-flex; align-items: center; gap: 8px;
-    height: 48px; padding: 0 24px;
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 14px; font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: background 0.15s ease, color 0.15s ease;
+  .listen-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .listen-row a {
+    display: inline-flex;
+    border-radius: 8px;
+    transition: transform 0.15s ease, opacity 0.15s ease;
   }
-  .platform:hover { background: var(--ink); color: var(--paper); }
-  @media (prefers-color-scheme: dark) { .platform:hover { background: var(--ink); color: var(--paper); } }
-  .platform .arrow { font-size: 12px; transform: translateY(-1px); }
+  .listen-row a:hover { transform: translateY(-2px); opacity: 0.92; }
+  .listen-row img.badge-img { height: 56px; display: block; border-radius: 8px; }
+  .badge-spotify, .badge-apple {
+    align-items: center;
+    height: 56px; padding: 0 26px;
+    background: #000;
+    border-radius: 8px;
+  }
+  .badge-spotify img { height: 21px; display: block; }
+  .badge-apple img { height: 26px; display: block; }
+  @media (prefers-color-scheme: dark) {
+    .listen-row a { outline: 1px solid rgba(237,234,228,0.2); outline-offset: -1px; }
+  }
   .alexa {
-    margin-top: 28px;
-    font-size: 13px; color: var(--ink-2);
-    padding-left: 14px;
-    border-left: 2px solid var(--accent);
-    max-width: 44em;
+    margin-top: 32px;
+    font-size: 14px; color: var(--ink-2);
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    max-width: 46em;
   }
+  .alexa b { color: var(--accent); font-weight: 700; }
 
   /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 660px;
+  .about { max-width: 680px; }
+  .about .lead-in {
+    font-family: "Shippori Mincho", serif;
+    font-size: 20px; font-weight: 600;
+    line-height: 2;
+    margin-bottom: 24px;
   }
-  .about p { font-size: 15.5px; color: var(--ink-2); margin-bottom: 1.6em; }
-  .about p:last-child { margin-bottom: 0; }
-  .about .lead-in { color: var(--ink); font-weight: 500; }
+  .about p { font-size: 16px; color: var(--ink-2); }
 
-  /* Concept quote */
-  .concept { text-align: center; padding: 108px 0; }
+  /* Concept band */
+  .concept {
+    background: var(--band-bg);
+    color: var(--band-fg);
+    text-align: center;
+    padding: 116px 0;
+    border-bottom: none;
+  }
   .concept blockquote {
     font-family: "Shippori Mincho", serif;
     font-weight: 500;
-    font-size: clamp(19px, 3vw, 26px);
+    font-size: clamp(20px, 3.2vw, 28px);
     line-height: 2.2;
     max-width: 26em;
     margin: 0 auto;
   }
   .concept blockquote em {
     font-style: normal;
-    color: var(--accent);
+    color: var(--band-em);
   }
   .concept .q-rule {
-    width: 40px; height: 1px; background: var(--line-strong);
-    margin: 0 auto 44px;
+    width: 44px; height: 2px; background: var(--band-em);
+    margin: 0 auto 48px;
   }
   .concept figcaption {
-    margin-top: 40px;
+    margin-top: 44px;
     font-family: "Inter", sans-serif;
-    font-size: 10.5px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--ink-3);
+    font-size: 10.5px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--band-muted);
   }
-
-  /* On air */
-  .onair-table { max-width: 660px; }
-  .onair-row {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 24px;
-    padding: 22px 0;
-    border-top: 1px solid var(--line);
-    font-size: 15px;
-  }
-  .onair-row:last-child { border-bottom: 1px solid var(--line); }
-  .onair-row .k {
-    font-family: "Shippori Mincho", serif;
-    font-weight: 600;
-  }
-  .onair-row .v { color: var(--ink-2); }
 
   /* Episodes */
   .embed iframe { border: 0; width: 100%; border-radius: 12px; }
 
+  /* On air */
+  .onair-table { max-width: 680px; }
+  .onair-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    font-size: 15.5px;
+  }
+  .onair-row:last-child { border-bottom: 1px solid var(--line); }
+  .onair-row .k {
+    font-family: "Shippori Mincho", serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .onair-row .v { color: var(--ink-2); }
+  .onair-row .v b { color: var(--ink); font-weight: 700; }
+
   /* Credits */
-  .credits { max-width: 660px; }
+  .credits { max-width: 680px; }
   .credit-row {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 24px;
-    padding: 20px 0;
+    padding: 22px 0;
     border-top: 1px solid var(--line);
-    font-size: 15px;
   }
   .credit-row:last-child { border-bottom: 1px solid var(--line); }
   .credit-row .k {
     font-family: "Inter", sans-serif;
-    font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--ink-3);
-    padding-top: 6px;
+    padding-top: 8px;
   }
   .credit-row .v {
     font-family: "Shippori Mincho", serif;
-    font-weight: 600; font-size: 17px;
+    font-weight: 700; font-size: 19px;
   }
 
   /* ---------- Footer ---------- */
@@ -259,7 +294,7 @@
   }
   .foot-links { display: flex; gap: 32px; flex-wrap: wrap; }
   .foot-links a {
-    font-size: 13.5px; text-decoration: none;
+    font-size: 14px; font-weight: 500; text-decoration: none;
     border-bottom: 1px solid var(--line-strong);
     padding-bottom: 2px;
     transition: color 0.15s ease, border-color 0.15s ease;
@@ -273,23 +308,27 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 760px) {
-    .hero { padding: 64px 0 56px; }
+    .hero { padding: 60px 0 56px; }
     .hero .container {
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 44px;
     }
-    .hero-art { order: -1; width: 220px; }
+    .hero-art { order: -1; width: 230px; }
+    h1 { font-size: 30px; }
     .facts .container { grid-template-columns: repeat(2, 1fr); }
     .fact { border-left: none; padding-left: 0; }
     .fact + .fact { padding-left: 0; }
     .fact:nth-child(even) { border-left: 1px solid var(--line); padding-left: 24px; }
     .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
-    .fact dd { font-size: 18px; }
+    .fact dd { font-size: 20px; }
     .concept blockquote br { display: none; }
-    .concept blockquote { line-height: 2.4; }
+    .concept blockquote { line-height: 2.4; text-align: left; }
+    .concept { padding: 84px 0; }
     section { padding: 64px 0; }
+    .sec-head { flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
     .onair-row, .credit-row { grid-template-columns: 1fr; gap: 4px; }
     .head-meta { display: none; }
+    .listen-row img.badge-img, .badge-spotify, .badge-apple { height: 50px; }
   }
 </style>
 </head>
@@ -307,9 +346,9 @@
     <div>
       <p class="overline">Business Comedy Podcast</p>
       <h1>ニューエコノミック<br>アニマルズ</h1>
-      <p class="lede">1話5分・通勤中に聴けるビジネスコメディ。現代の働く人たちの“あるある”を笑いに変える、一話完結のオーディオドラマです。</p>
+      <p class="lede"><b>1話5分・通勤中に聴けるビジネスコメディ。</b><br>現代の働く人たちの“あるある”を笑いに変える、一話完結のオーディオドラマです。</p>
     </div>
-    <img class="hero-art" src="assets/cover.jpg" alt="ニューエコノミックアニマルズ カバーアート" width="300" height="300">
+    <img class="hero-art" src="assets/cover.jpg" alt="ニューエコノミックアニマルズ カバーアート" width="320" height="320">
   </div>
 </div>
 
@@ -324,20 +363,20 @@
 
 <section id="listen">
   <div class="container">
-    <p class="sec-label"><b>01</b> Listen</p>
+    <div class="sec-head"><span class="no">01</span><h2>聴く</h2><span class="en">Listen</span></div>
     <div class="listen-row">
-      <a class="badge-link" href="https://music.amazon.co.jp/podcasts/7b126533-6e36-48f4-993b-a0abe2f53166" target="_blank" rel="noopener"><img src="assets/listen-on-amazon-music-jp-charcoal.png" alt="Amazon Musicで聴く"></a>
-      <a class="platform" href="https://open.spotify.com/show/0Ni2G71wjYVIsIOZV3Dpi8" target="_blank" rel="noopener">Spotify<span class="arrow">↗</span></a>
-      <a class="platform" href="https://podcasts.apple.com/jp/podcast/id1572195829" target="_blank" rel="noopener">Apple Podcasts<span class="arrow">↗</span></a>
+      <a href="https://music.amazon.co.jp/podcasts/7b126533-6e36-48f4-993b-a0abe2f53166" target="_blank" rel="noopener"><img class="badge-img" src="assets/listen-on-amazon-music-jp-charcoal.png" alt="Amazon Musicで聴く"></a>
+      <a class="badge-spotify" href="https://open.spotify.com/show/0Ni2G71wjYVIsIOZV3Dpi8" target="_blank" rel="noopener" aria-label="Spotifyで聴く"><img src="assets/spotify-logo-green.png" alt="Spotify"></a>
+      <a class="badge-apple" href="https://podcasts.apple.com/jp/podcast/id1572195829" target="_blank" rel="noopener" aria-label="Apple Podcastsで聴く"><img src="assets/apple-podcasts-lockup-white-jp.svg" alt="Apple Podcastsで聴く"></a>
     </div>
-    <p class="alexa">Alexa対応 —「アレクサ、Amazon Musicでポッドキャスト『ニューエコノミックアニマルズ』を再生して」</p>
+    <p class="alexa">🗣 Alexa対応 —— <b>「アレクサ、Amazon Musicでポッドキャスト『ニューエコノミックアニマルズ』を再生して」</b></p>
   </div>
 </section>
 
 <section id="about">
   <div class="container">
-    <p class="sec-label"><b>02</b> About</p>
-    <div class="about about-grid">
+    <div class="sec-head"><span class="no">02</span><h2>番組について</h2><span class="en">About</span></div>
+    <div class="about">
       <p class="lead-in">「AIに仕事を奪われる」「何でもハラスメント」「同僚のスタートアップへの転職」——誰もが覚えのあるビジネスシーンを、5分のコメディに凝縮。</p>
       <p>通勤中・家事中・休憩中の“ながら聴き”にぴったりのポッドキャストです。長野県のコミュニティFM「FMさくだいら」でも毎週放送中。</p>
     </div>
@@ -359,7 +398,7 @@
 
 <section id="episodes">
   <div class="container">
-    <p class="sec-label"><b>03</b> Episodes</p>
+    <div class="sec-head"><span class="no">03</span><h2>エピソード</h2><span class="en">Episodes</span></div>
     <div class="embed">
       <iframe src="https://open.spotify.com/embed/show/0Ni2G71wjYVIsIOZV3Dpi8?utm_source=generator" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="ニューエコノミックアニマルズ 最新エピソード"></iframe>
     </div>
@@ -368,17 +407,17 @@
 
 <section id="onair">
   <div class="container">
-    <p class="sec-label"><b>04</b> On Air</p>
+    <div class="sec-head"><span class="no">04</span><h2>放送・配信</h2><span class="en">On Air</span></div>
     <div class="onair-table">
-      <div class="onair-row"><div class="k">FMさくだいら</div><div class="v">毎週金曜 20:00 O.A.（長野県佐久エリア）</div></div>
-      <div class="onair-row"><div class="k">ポッドキャスト</div><div class="v">毎週金曜 20:30 新エピソード配信</div></div>
+      <div class="onair-row"><div class="k">FMさくだいら</div><div class="v"><b>毎週金曜 20:00 O.A.</b>（長野県佐久エリア）</div></div>
+      <div class="onair-row"><div class="k">ポッドキャスト</div><div class="v"><b>毎週金曜 20:30</b> 新エピソード配信</div></div>
     </div>
   </div>
 </section>
 
 <section id="credits">
   <div class="container">
-    <p class="sec-label"><b>05</b> Credits</p>
+    <div class="sec-head"><span class="no">05</span><h2>クレジット</h2><span class="en">Credits</span></div>
     <div class="credits">
       <div class="credit-row"><div class="k">脚本</div><div class="v">塩味</div></div>
       <div class="credit-row"><div class="k">出演</div><div class="v">塩味・ロブスター夫人</div></div>
