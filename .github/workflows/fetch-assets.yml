@@ -13,22 +13,23 @@ jobs:
       - name: Fetch and verify images
         run: |
           set -e
-          if [ -f assets/cover.jpg ] && [ -f assets/listen-on-amazon-music-jp-charcoal.png ]; then
-            echo "assets already present"; exit 0
-          fi
           mkdir -p assets
-          curl -sL "https://i.scdn.co/image/ab6765630000ba8a0bd52fdba0d7225b96916365" -o assets/cover.jpg
-          curl -sL "https://amazonmusic.app.box.com/index.php?rm=box_download_shared_file&shared_name=j5lmtjd7tqvm3zj1rg2mcp4t1k4esxww&file_id=f_1204013215718" -o assets/listen-on-amazon-music-jp-charcoal.png
-          curl -sL "https://amazonmusic.app.box.com/index.php?rm=box_download_shared_file&shared_name=j5lmtjd7tqvm3zj1rg2mcp4t1k4esxww&file_id=f_1203983796144" -o assets/listen-on-amazon-music-jp-white.png
+          [ -f assets/cover.jpg ] || curl -sL "https://i.scdn.co/image/ab6765630000ba8a0bd52fdba0d7225b96916365" -o assets/cover.jpg
+          [ -f assets/listen-on-amazon-music-jp-charcoal.png ] || curl -sL "https://amazonmusic.app.box.com/index.php?rm=box_download_shared_file&shared_name=j5lmtjd7tqvm3zj1rg2mcp4t1k4esxww&file_id=f_1204013215718" -o assets/listen-on-amazon-music-jp-charcoal.png
+          [ -f assets/listen-on-amazon-music-jp-white.png ] || curl -sL "https://amazonmusic.app.box.com/index.php?rm=box_download_shared_file&shared_name=j5lmtjd7tqvm3zj1rg2mcp4t1k4esxww&file_id=f_1203983796144" -o assets/listen-on-amazon-music-jp-white.png
+          [ -f assets/spotify-logo-green.png ] || curl -sL "https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png" -o assets/spotify-logo-green.png
+          [ -f assets/listen-on-apple-podcasts-jp.svg ] || curl -sL "https://tools.applemediaservices.com/api/badges/listen-on-apple-podcasts/badge/ja-jp?size=250x83" -o assets/listen-on-apple-podcasts-jp.svg
           echo "5352e40637cab50d24e5c911f895468296cc5af865723adb9f0eebc9eb64a5fd  assets/cover.jpg" | sha256sum -c
           echo "4704a6ebc518cf7a26a8948b2092d078077ac790f88ed68a3c48fc6fbe0fdf63  assets/listen-on-amazon-music-jp-charcoal.png" | sha256sum -c
           echo "d16b993e511316fe930a3579ba51a229459c801962ad4a310c7b216a5f7443a8  assets/listen-on-amazon-music-jp-white.png" | sha256sum -c
+          echo "691d3c7145702c0533b651efa6c29af57235e2ba7a2f7d54f57e650086d8915c  assets/spotify-logo-green.png" | sha256sum -c
+          echo "930d21f039edf86fe250e6574bb3389b452f9762f0a14092c26c7b566f0f2002  assets/listen-on-apple-podcasts-jp.svg" | sha256sum -c
       - name: Commit assets
         run: |
           if git status --porcelain assets | grep -q .; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets
-            git commit -m "Add site assets (cover art, Amazon Music badges)"
+            git commit -m "Add official Spotify logo and Apple Podcasts badge"
             git push
           fi
